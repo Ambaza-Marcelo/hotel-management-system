@@ -44,15 +44,14 @@
                                         <span class="text-danger">{{ $errors->first('leave_type') }}</span>
                                     </div>
                                 </div>
-                                <div class=" @if(!$leave)col-md-2 @else col-md-4 @endif">
+                                <div class="col-md-2">
                                     <div class="form-group has-feedback">
-                                        <label for="leave_date">Leave Date @if(!$leave)Start @endif<span class="text-danger"></span></label>
-                                        <input type='date' class="form-control date_picker" name="leave_date" placeholder="date"minlength="10" maxlength="10" />
+                                        <label for="leave_date">Leave Date Start<span class="text-danger"></span></label>
+                                        <input type='date' class="form-control date_picker" name="leave_date_start" placeholder="date"minlength="10" maxlength="10" />
                                         <span class="fa fa-calendar form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('leave_date') }}</span>
                                     </div>
                                 </div>
-                                    @if(!$leave)
                                     <div class="col-md-2">
                                     <div class="form-group has-feedback">
                                         <label for="leave_date_end">Leave Date end</label>
@@ -61,7 +60,6 @@
                                         <span class="text-danger">{{ $errors->first('leave_date_end') }}</span>
                                     </div>
                                 </div>
-                                @endif
                             </div>
                             <div class="row">
                                 <div class="col-md-4">

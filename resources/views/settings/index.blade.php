@@ -25,10 +25,10 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <a class="btn btn-info btn-sm" href="{{url('register/student')}}">+ @lang('Employee')</a>
+                                        <a class="btn btn-info btn-sm" href="{{url('register/employee')}}">+ @lang('Employee')</a>
                                     </td>
                                     <td>
-                                        <a class="btn btn-success btn-sm" href="{{url('register/teacher')}}">+ @lang('Customer')</a>
+                                        <a class="btn btn-success btn-sm" href="{{url('register/customer')}}">+ @lang('Customer')</a>
                                     </td>
                                     <td>
                                         <a class="btn btn-default btn-sm" href="{{url('register/accountant')}}">+ @lang('Add Accountant')</a>

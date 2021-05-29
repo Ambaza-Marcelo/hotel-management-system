@@ -19,20 +19,6 @@
                 @guest
                 <li><a href="{{ route('login') }}" style="color: #000;">@lang('Login')</a></li>
                 @else
-                @if(\Auth::user()->role == 'customer')
-                <li class="nav-item">
-                    <a href="{{url('user/'.\Auth::user()->id.'/notifications')}}" class="nav-link nav-link-align-btn"
-                        role="button">
-                        <i class="material-icons text-muted">email</i>
-                        <?php
-                            $mc = \App\Notification::where('student_id',\Auth::user()->id)->where('active',1)->count();
-                        ?>
-                        @if($mc > 0)
-                        <span class="label label-danger" style="vertical-align: middle;border-style: none;border-radius: 50%;width: 30px;height: 30px;">{{$mc}}</span>
-                        @endif
-                    </a>
-                </li>
-                @endif
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle nav-link-align-btn" data-toggle="dropdown" role="button"
                         aria-expanded="false" aria-haspopup="true">
@@ -40,7 +26,7 @@
                             {{ ucfirst(\Auth::user()->role) }}
                         </span>&nbsp;&nbsp;
                         @if(!empty(Auth::user()->pic_path))
-                        <img src="{{asset('01-progress.gif')}}" data-src="{{url(Auth::user()->pic_path)}}" alt="Profile Picture"
+                        <img src="{{asset('01-progress.gif')}}" data-src="{{url(Auth::user()->pic_path)}}" alt=""
                             style="vertical-align: middle;border-style: none;border-radius: 50%;width: 30px;height: 30px;">
                         @else
                         @if(strtolower(Auth::user()->gender) == 'male')

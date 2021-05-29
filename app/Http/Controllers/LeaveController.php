@@ -17,27 +17,11 @@ class LeaveController extends Controller
     public function index(Request $request)
     {
         //
-        $employee = $request->get('employee_id');
-        $leave_type = $request->get('leave_type');
-        $leave_date = $request->get('leave_date');
-        $status = $request->get('status');
-        $employees = Employee::pluck('name','id')->prepend('All');
-        $leaves = collect();
-        if($request->has('filter')){
-            $leaves = Leave::with('employee')
-                ->whereEmployee($employee)
-                ->whereLeaveType($leave_type)
-                ->whereLeaveDate($leave_date)
-                ->whereStatus($status)
-                ->get();
-        }
+        $employees = Employee::pluck('name','id');
+        $leaves = Leave::all();
         return view('backend.hrm.leave.index',compact(
             'leaves',
             'employees',
-            'employee',
-            'leave_type',
-            'leave_date',
-            'status'
         ));
 
     }
@@ -73,13 +57,14 @@ class LeaveController extends Controller
         $request->validate([
             'employee_id' => 'required',
             'leave_type' => 'required',
-            'leave_date' => 'required',
+            'leave_date_start' => 'required',
+            'leave_date_end' => 'required',
             'document' => 'nullable|mimes:jpeg,jpg,png,pdf,docx,txt|max:2048',
             'description' => 'nullable|max:500',
         ]);
 
         $dayCount = 1;
-        $leaveDateStart = $request->get('leave_date');
+        $leaveDateStart = $request->get('leave_date_start');
         $leaveDateEnd = null;
         if(strlen($request->get('leave_date_end',''))) {
             $leaveDateEnd = $request->get('leave_date_end');
@@ -162,7 +147,7 @@ class LeaveController extends Controller
          $request->validate([
             'employee_id' => 'required',
             'leave_type' => 'required',
-            'leave_date' => 'required',
+            'leave_date_start' => 'required',
             'document' => 'nullable|mimes:jpeg,jpg,png,pdf,docx,txt|max:2048',
             'description' => 'nullable|max:500',
         ]);

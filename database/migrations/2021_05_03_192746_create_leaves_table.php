@@ -17,7 +17,8 @@ class CreateLeavesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('employee_id');
             $table->enum('leave_type', [1,2,3,4,5])->default(1);
-            $table->string('leave_date');
+            $table->string('leave_date_start');
+            $table->string('leave_date_end');
             $table->string('document');
             $table->string('description');
             //rejected pending approved

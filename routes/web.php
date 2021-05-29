@@ -43,6 +43,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/settings', 'SettingController@index')->name('settings.index');
     Route::get('admin/images','FileController@create');
     Route::post('file','FileController@store');
+    Route::get('user/config/change_password');
     
 
     Route::get('admin/report','ReportController@create');
