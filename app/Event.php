@@ -2,15 +2,12 @@
 
 namespace App;
 
-use App\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    /**
-     * Get the school record associated with the user.
-    */
-    public function hotel()
-    {
-        return $this->belongsTo('App\Hotel');
-    }
+    //
+    protected $fillable = [
+    	'title','description','date','time','image',
+    ];
 }

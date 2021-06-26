@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
-@section('title', __('Manage Hotels'))
+@section('title', __('Manage AMBAZAPP'))
 
 @section('content')
     <div class="container-fluid">
         <div class="col-md-12" id="main-container">
             <div class="panel panel-default">
                 <div class="panel-body table-responsive">
-                    @include('hotels.form')
-                    <h2>@lang('Hotel List')</h2>
-                    <table class="table table-condensed">
+                    <a class="btn btn-info btn-sm" href="{{ URL::route('hotels.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
+                    <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">@lang('Name')</th>
-                                <th scope="col">@lang('Code')</th>
-                                <th scope="col">@lang('About')</th>
-                                <th scope="col">@lang('Logo')</th>
+                                <th width="20%">@lang('Logo')</th>
+                                <th width="10%">@lang('Name')</th>
+                                <th width="10%">@lang('Code')</th>
+                                <th width="10%">@lang('Adress')</th>
+                                <th scope="40%">@lang('About')</th>
                                 <th scope="col">@lang('Edit')</th>
                                 <th scope="col">+@lang('Admin')</th>
                                 <th scope="col">@lang('View Admins')</th>
@@ -26,13 +26,16 @@
                             @foreach ($hotels as $hotel)
                                 <tr>
                                     <td>{{($loop->index + 1)}}</td>
-                                    <td><small>{{$hotel->name}}</small></td>
-                                    <td><small>{{$hotel->code}}</small></td>
-                                    <td><small>{{$hotel->about}}</small></td>
-                                    <td><small><img src="{{$hotel->logo}}"></small></td>
+                                    <td>
+                                        <img class="img-responsive" style="max-height: 60px;" src="{{ asset('storage/logos')}}/{{ $hotel->image }}" alt="">
+                                    </td>
+                                    <td>{{$hotel->name}}</td>
+                                    <td>{{$hotel->code}}</td>
+                                    <td>{{$hotel->adress}}</td>
+                                    <td>{{$hotel->about}}</td>
                                     <td>
                                         <a class="btn btn-success btn-sm" role="button" href="{{ route('hotels.edit', $hotel) }}" dusk="edit-hotel-link">
-                                            <small>@lang('Edit Hotel')</small>
+                                            <small>@lang('Edit AMBAZAPP')</small>
                                         </a>
                                     </td>
                                     <td>

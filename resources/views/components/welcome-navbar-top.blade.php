@@ -13,7 +13,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="" style="color: #000;">
-                Hotel name
+                AMBAZAPP
             </a>
         </div>
 
@@ -21,55 +21,19 @@
         
             <ul class="nav navbar-nav navbar-right">
                 
-                <li><a href="" style="color: #000;">@lang('Hebergement')</a></li>
+                <li><a href="{{url('room-list')}}" style="color: #000;">@lang('Hebergement')</a></li>
                 <li class="nav-item">
-                    <a href="" class="nav-link nav-link-align-btn"
+                    <a href="{{url('drink-list')}}" class="nav-link nav-link-align-btn"
                         role="button">
-                        Restaurant and Bar
+                        Bar
                         <span class="label label-danger" style="vertical-align: middle;border-style: none;border-radius: 50%;width: 30px;height: 30px;"></span>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle nav-link-align-btn" data-toggle="dropdown" role="button"
-                        aria-expanded="false" aria-haspopup="true">
-                        
-                        &nbsp;&nbsp;Services <span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">@lang('Salle de Reunion')</a>
-                        </li>
-                        <li>
-                            <a href="">@lang('Sauna')</a>
-                        </li>
-                        <li>
-                            <a href="">@lang('Gym Tonic')</a>                                
-                        </li>
-                        <li>
-                            <a href="">@lang('Piscine')</a>                                
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle nav-link-align-btn" data-toggle="dropdown" role="button"
-                        aria-expanded="false" aria-haspopup="true">
-                        
-                        &nbsp;&nbsp;@lang('Gallery')<span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="{{ url('images-list')}}">@lang('image')</a>
-                        </li>
-                        <li>
-                            <a href="">@lang('Video')</a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="" style="color: #000;">@lang('Conferency and Event')</a></li>
+                <li><a href="#gallery" style="color: #000;">@lang('Gallery')</a></li>
+                <li><a href="{{url('event-available')}}" style="color: #000;">@lang('Conferency and Event')</a></li>
                 <li><a href="" style="color: #000;">@lang('Booking')</a></li>
-                <li><a href="" style="color: #000;">@lang('Contact')</a></li>
+                <li><a href="#contact" style="color: #000;">@lang('Contact')</a></li>
+                <li><a href="#help" style="color: #000;">@lang('Help')</a></li>
                 <!--<li class="nav-item">
                     
                         @if (Route::has('login'))

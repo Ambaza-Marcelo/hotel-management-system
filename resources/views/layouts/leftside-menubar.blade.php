@@ -24,12 +24,7 @@
   }
 </style>
 {{--@if(Auth::user()->role != 'master')
-<ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link" href="{{url('user/'.Auth::user()->student_code)}}"><span
-        class="nav-link-text">@lang('Profile')</span></a>
-  </li>
-</ul>
+
 @endif--}}
 <ul class="nav flex-column">
   <li class="nav-item active">
@@ -65,19 +60,41 @@
       </li>
     </ul>
   </li>
-   <li class="nav-item dropdown">
-    <a role="button" href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">@lang('Galerie')</span></a>
+
+  <li class="nav-item dropdown">
+    <a role="button" href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">@lang('Site')</span></a>
     <ul class="dropdown-menu" style="width: 100%;">
       <li class="nav-item">
-        <a class="dropdown-item" href="{{ url('admin/images')}}"><span class="nav-link-text">@lang('Images')</span></a>
+        <a class="dropdown-item" href="{{ URL::route('site.dashboard') }}"><span class="nav-link-text">@lang('Analythics')</span></a>
       </li>
       <li class="nav-item">
-        <a class="dropdown-item" href="{{ url('admin/videos')}}"><span class="nav-link-text">@lang('Videos')</span></a>
+        <a class="dropdown-item" href="{{URL::route('slider.index')}}"><span class="nav-link-text">@lang('Sliders')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('site.service') }}"><span class="nav-link-text">@lang('Our Services')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('site.subscribe') }}"><span class="nav-link-text">@lang('Subscribers')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('site.service') }}"><span class="nav-link-text">@lang('Services')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('site.gallery') }}"><span class="nav-link-text">@lang('Gallery List')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('site.contact_us') }}"><span class="nav-link-text">@lang('Contact Us')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('site.faq') }}"><span class="nav-link-text">@lang('Faq')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('event.index') }}"><span class="nav-link-text">@lang('Event')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="dropdown-item" href="{{ URL::route('point-keys.index') }}"><span class="nav-link-text">@lang('Point Key')</span></a>
       </li>
     </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{ url('admin/slider/create')}}"><span class="nav-link-text">@lang('Sliders')</span></a>
   </li>
   <li class="nav-item dropdown">
     <a role="button" href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="nav-link-text">@lang('HRM')</span></a>
@@ -99,7 +116,7 @@
     <ul class="dropdown-menu" style="width: 100%;">
       <!-- Dropdown menu links -->
       <li>
-        <a class="dropdown-item" href=""><span class="nav-link-text">@lang('Room price')</span></a>
+        <a class="dropdown-item" href="{{route('room.index')}}"><span class="nav-link-text">@lang('Room')</span></a>
       </li>
       <li>
         <a class="dropdown-item" href="{{ route('categories.index') }}"><span class="nav-link-text">@lang('Category')</span></a>
@@ -114,10 +131,10 @@
     <ul class="dropdown-menu" style="width: 100%;">
       <!-- Dropdown menu links -->
       <li>
-        <a class="dropdown-item" href=""><span class="nav-link-text">@lang('Food')</span></a>
+        <a class="dropdown-item" href="{{route('command-food.index')}}"><span class="nav-link-text">@lang('Food')</span></a>
       </li>
       <li>
-        <a class="dropdown-item" href=""><span class="nav-link-text">@lang('Drink')</span></a>
+        <a class="dropdown-item" href="{{route('command-drink.index')}}"><span class="nav-link-text">@lang('Drink')</span></a>
       </li>
     </ul>
   </li>

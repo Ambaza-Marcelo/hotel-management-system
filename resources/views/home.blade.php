@@ -32,26 +32,53 @@
                             </div>
                             
                         </div>
-                    <div id="draggable">
-                        <div id="employees" class="ui-widget-content">
-                            <p class="employees">Employees</p>
-                            <span class="glyphicon glyphicon-user"></span>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-14">
+                            <div class="">
+                                <span class=""></i></span>
+
+                                <div class="jumbotron">
+                                    <img src="{{asset('images/clipart5.png')}}" alt="subscribers">
+                                    <span>Subscribers</span>
+                                    <span"><small></small></span>
+                                </div>
+                            </div>
                         </div>
-                        <div id="users" class="ui-widget-content">
-                            <p class="users">Users</p>
-                            <span class="glyphicon glyphicon-user"></span>
+
+                        <div class="col-md-6 col-sm-14">
+                            <div class="">
+                                <div class="jumbotron">
+                                    <img src="{{asset('images/clipart3.png')}}" alt="photos">
+                                    <span class="i">Photos</span>
+                                    <span class=""></span>
+                                </div>
+                            </div>
+                            <!-- /.info-box -->
                         </div>
-                        <div id="capital" class="ui-widget-content">
-                            <p class="capital">Capital</p>
-                            <span class="glyphicon glyphicon-user"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-14">
+                            <div class="">
+                                <span class=""></i></span>
+
+                                <div class="jumbotron">
+                                    <img src="{{asset('images/clipart2.png')}}" alt="subscribers">
+                                    <span>Employees</span>
+                                    <span"></span>
+                                </div>
+                            </div>
                         </div>
-                        <div id="expense" class="ui-widget-content">
-                            <p class="expense">Expense</p>
-                            <span class="glyphicon glyphicon-user"></span>
-                        </div>
-                        <div id="income" class="ui-widget-content">
-                            <p class="income">Income</p>
-                            <span class="glyphicon glyphicon-user"></span>
+
+                        <div class="col-md-6 col-sm-14">
+                            <div class="">
+                                <div class="jumbotron">
+                                    <img src="{{asset('images/clipart1.png')}}" alt="photos">
+                                    <span class="i">Bookings</span>
+                                    <span class=""></span>
+                                </div>
+                            </div>
+                            <!-- /.info-box -->
                         </div>
                     </div>
                 </div>

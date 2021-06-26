@@ -25,7 +25,6 @@
     </script>
     <script src="{{ url('js/application.js') }}"></script>
     <script src="{{ url('jquery-ui/jquery-ui.js') }}"></script>
-    @yield('after_scripts')
 </head>
 
 <body>
@@ -34,9 +33,6 @@
         @include('components.navbar-top')
         @yield('content')
     </div>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&style=normal&weight=400"
-      rel="stylesheet">
     <link rel="stylesheet" href="{{ url('css/vendors.css') }}" id="bootswatch-print-id">
     <link rel="stylesheet" href="{{ url('css/application.css') }}">
     <link rel="stylesheet" href="{{ url('jquery-ui/jquery-ui.css') }}">

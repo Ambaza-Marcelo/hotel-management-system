@@ -3,12 +3,10 @@
 @section('title', __('Login'))
 
 @section('content')
-<div class="container">
+<div class="container" style="background-image: url('{{asset('background/1.jpg')}}');">
     <div class="row">
         <div class="col-md-8 col-md-offset-2" id="main-container">
-            <div class="panel panel-default">
-                <div class="page-panel-title">@lang('Login')</div>
-                
+            <div class="panel panel-default">                
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>

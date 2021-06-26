@@ -32,9 +32,7 @@
                                         <td>
                                             {{$loop->iteration}}
                                         </td>
-                                        @foreach($employees as $employee)
-                                        <td>{{ $employee }}</td>
-                                        @endforeach
+                                        <td>{{ $employees }}</td>
                                         <td>{{ $leave->leave_type }}</td>
                                         <td>{{ $leave->leave_date_start}}</td>
                                         <td>{{ $leave->leave_date_end}}</td>

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'AMBAZZAP'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,6 +50,28 @@ return [
     | the Artisan command line tool. You should set this to the root of
     | your application so that it is used when running Artisan tasks.
     |
+    */
+
+    'maintainer' => 'Ambaza Marcellin',
+
+    /*
+        | Application Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" your application is Email maintainer. 
+      This may determine how you prefer to configure various
+    | services your application utilizes. Set this in your ".env" file.
+    */
+
+    'maintainer_mail' => env('MAINTAINER_MAIL','ambazamarcellin2001@gmail.com'),
+
+    /*
+        | Application Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" your application is currently
+    | maintaining in. This may determine how you prefer to configure various
+    | services your application utilizes. Set this in your ".env" file.
     */
 
     'url' => env('APP_URL', 'http://localhost'),
