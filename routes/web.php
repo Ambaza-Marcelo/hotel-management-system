@@ -67,8 +67,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::resource('product','ProductController');
     Route::resource('expenses','ExpenseController');
-   // Route::delete('expense-delete/{id}','ExpenseController@destroy')->name('expense-delete');
-   // Route::resource('incomes','IncomeController');
 
     //sale
     Route::get('add-sale','SaleController@addSale');
