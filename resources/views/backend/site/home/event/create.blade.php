@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form novalidate id="entryForm" action="{{route('event.store')}}" method="post" enctype="multipart/form-data">
+                    <form novalidate id="entryForm" action="{{route('events.store')}}" method="post" enctype="multipart/form-data">
                         <div class="box-body">
                             @csrf
                             <div class="row">

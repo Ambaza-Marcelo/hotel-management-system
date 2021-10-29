@@ -29,7 +29,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
                                         <label for="qualification">Qualification</label>
-                                        <input type="text" class="form-control" name="qualification" placeholder="MA,L"  maxlength="255">
+                                        <input type="text" class="form-control" name="qualification" placeholder="MA,L,A2"  maxlength="255">
                                         <span class="fa fa-info form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('qualification') }}</span>
                                     </div>
@@ -55,6 +55,8 @@
                                         	<option>catholic</option>
                                         	<option>islam</option>
                                         	<option>SDA</option>
+                                            <option>pentecote</option>
+                                            <option>methodiste libre</option>
                                         </select>
                                         <span class="form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('religion') }}</span>
@@ -76,15 +78,15 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
-                                        <label for="phone_no">Phone/Mobile No.<span class="text-danger"></span></label>
-                                        <input  type="text" class="form-control" name="phone_no" required placeholder="phone or mobile number" min="8" maxlength="15">
+                                        <label for="phone_no">Phone<span class="text-danger"></span></label>
+                                        <input  type="text" class="form-control" name="phone_no" required placeholder="phone number" min="8" maxlength="15">
                                         <span class="fa fa-phone form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('phone_no') }}</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
-                                        <label for="id_card">ID Card No. / Employee ID<span class="text-danger">*</span></label>
+                                        <label for="id_card">ID Card No<span class="text-danger">*</span></label>
                                         <input  type="text" class="form-control" name="id_card"  placeholder="id card number" required minlength="4" maxlength="50">
                                         <span class="fa fa-id-card form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('id_card') }}</span>
@@ -148,10 +150,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
-                                        <label for="photo">Signature<br><span class="text-black"></span></label>
-                                        <input  type="file" class="form-control" accept=".jpeg, .jpg, .png" name="signature" placeholder="Signature image">
-                                        <span class="glyphicon glyphicon-open-file form-control-feedback" style="top:30px;"></span>
-                                        <span class="text-danger">{{ $errors->first('signature') }}</span>
+                                        <label for="photo">Salary<br><span class="text-black"></span></label>
+                                        <input  type="number" class="form-control" name="salary" placeholder="Salary ">
+                                        <span class="text-danger">{{ $errors->first('salary') }}</span>
                                     </div>
                                 </div>
                             </div>

@@ -15,6 +15,8 @@
 		      <tr>
 		        <th>id</th>
 		        <th>name</th>
+		        <th>Discount Price</th>
+				<th>Price</th>
 		        <th>Actions</th>
 		      </tr>
 		    </thead>
@@ -23,19 +25,25 @@
 		      <tr class="success">
 		        <td>{{$category->id}}</td>
 		        <td>{{$category->name}}</td>
+				<td>{{$category->discount_price}} FBU</td>
+		        <td>{{$category->price}} FBU</td>
 		        <td>
-		        	<form action="{{ route('categories.destroy',$category->id) }}" method="POST">
-		        		@csrf
-		        		@method('DELETE')
-		        	<a class="btn btn-info btn-sm" role="button" href="">
-                             <small>@lang('Show Category')</small>
-                	</a>
-                	<a class="btn btn-primary btn-sm" role="button" href="{{ route('categories.edit',$category->id) }}">
-                             <small>@lang('Edit Category')</small>
-                	</a>
-                	<a class="btn btn-danger btn-sm" role="button" href="{{ route('categories.destroy',$category->id) }}">
-                             <small>@lang('delete Category')</small>
-                	</a>
+		        	 <div style="display: flex;">
+                        <div class="btn-group">
+                            <a title="Edit" href="{{route('categories.edit',$category->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>Editer</a>
+
+                            </a>
+                        </div>&nbsp;&nbsp;
+                        <div class="btn-group">
+                            <form class="myAction" method="POST" action="{{route('categories.destroy',$category->id)}}" onclick="return confirm('voulez-vous vraiment supprimer ?')">
+                                                {{ method_field('DELETE') }}
+                                                @csrf
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                                    <i class="fa fa-fw fa-trash"></i>Supprimer
+                                </button>
+                            </form>
+                        </div>
+                    </div>
 		        </td>
 		      </tr>
 		      @endforeach

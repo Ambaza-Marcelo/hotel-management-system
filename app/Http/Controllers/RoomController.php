@@ -2,51 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Category;
+use App\Room;
 
 class RoomController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //
+
     public function index()
     {
-        //
-        $rooms = Room::orderBy('title','asc')->paginate(20);
-        return view('backend.site.home.room.index',compact('rooms'));
+    	$rooms = Room::with('category')->paginate(10);
+    	return view('backend.room.index',compact('rooms'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
-        return view('backend.site.home.room.create');
+    	$categories = Category::get();
+    	return view('backend.room.create',compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+     public function store(Request $request)
     {
         //
         $request->validate([
-            'title' => 'required|min:1|max:255',
-            'description' => 'required|min:5|max:255',
-            'old_price' =>'required',
-            'new_price' => 'required',
-            'type' => 'required',
-            'num' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png|max:2048|dimensions:min_width=1900,min_height=1200',
+            'num_room' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png|max:3072',
 
         ]);
 
@@ -58,19 +42,10 @@ class RoomController extends Controller
 
         Room::create($data);
 
-        return redirect()->route('room.index')->with('success', 'New room item created.');
+        return redirect()->route('admin-room-list')->with('success', 'New room  created.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Room  $room
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Room $room)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -78,9 +53,12 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit($id)
     {
         //
+        $room = Room::findOrFail($id);
+        $categories = Category::get();
+        return view('backend.room.edit', compact('room','categories'));
     }
 
     /**
@@ -90,9 +68,35 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'num_room' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'image' => 'mimes:jpeg,jpg,png|max:3072',
+
+        ]);
+
+        $room = Room::findOrFail($id);
+
+        $data = $request->all();
+
+        if($request->hasFile('image')){
+            $file_path = "public/rooms/".$room->image;
+            Storage::delete($file_path);
+
+            $storagepath = $request->file('image')->store('public/rooms');
+            $fileName = basename($storagepath);
+            $data['image'] = $fileName;
+
+        }
+
+        $room->fill($data);
+        $room->save();
+
+        return redirect()->route('admin-room-list');
     }
 
     /**
@@ -101,8 +105,13 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $room)
+    public function destroy($id)
     {
         //
+        $room = Room::findOrFail($id);
+        $file_path = "public/rooms/".$room->image;
+            Storage::delete($file_path);
+        $room->delete();
+        return redirect()->back();
     }
 }

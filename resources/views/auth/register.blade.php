@@ -101,42 +101,125 @@
                                     required>
                             </div>
                         </div>
-                        @if(session('register_role', 'student') == 'student')
-                        <div class="form-group{{ $errors->has('section') ? ' has-error' : '' }}">
-                            <label for="section" class="col-md-4 control-label">* @lang('Class and Section')</label>
+                        @if(session('register_role', 'accountant') == 'accountant' || session('register_role', 'technician') == 'technician')
+
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label"> @lang('Address')</label>
 
                             <div class="col-md-6">
-                                <select id="section" class="form-control" name="section" required>
-                                    @foreach (session('register_sections') as $section)
-                                    <option value="{{$section->id}}">@lang('Section'): {{$section->section_number}} @lang('Class'):
-                                        {{$section->class->class_number}}</option>
-                                    @endforeach
-                                </select>
+                                <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}">
 
-                                @if ($errors->has('section'))
+                                @if ($errors->has('address'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('section') }}</strong>
+                                    <strong>{{ $errors->first('address') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('birthday') ? ' has-error' : '' }}">
-                            <label for="birthday" class="col-md-4 control-label">* @lang('Birthday')</label>
+                        <div class="form-group{{ $errors->has('commune') ? ' has-error' : '' }}">
+                            <label for="commune" class="col-md-4 control-label"> @lang('Commune')</label>
 
                             <div class="col-md-6">
-                                <input id="birthday" type="text" class="form-control" name="birthday" value="{{ old('birthday') }}"
-                                    required>
+                                <input id="commune" type="text" class="form-control" name="commune" value="{{ old('commune') }}">
 
-                                @if ($errors->has('birthday'))
+                                @if ($errors->has('commune'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('birthday') }}</strong>
+                                    <strong>{{ $errors->first('commune') }}</strong>
                                 </span>
                                 @endif
                             </div>
                         </div>
-                        @endif
-                        @if(session('register_role', 'customer') == 'customer')
-                        
+                        <div class="form-group{{ $errors->has('province') ? ' has-error' : '' }}">
+                            <label for="province" class="col-md-4 control-label">@lang('Province')</label>
+
+                            <div class="col-md-6">
+                                <input id="province" type="text" class="form-control" name="province" value="{{ old('province') }}">
+
+                                @if ($errors->has('province'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('province') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('birthday_date') ? ' has-error' : '' }}">
+                            <label for="birthday_date" class="col-md-4 control-label"> @lang('Birthday Date')</label>
+
+                            <div class="col-md-6">
+                                <input id="birthday_date" type="date" class="form-control" name="birthday_date" value="{{ old('birthday_date') }}">
+
+                                @if ($errors->has('birthday_date'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('birthday_date') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('recent_address') ? ' has-error' : '' }}">
+                            <label for="recent_address" class="col-md-4 control-label">@lang('Recent Address')</label>
+
+                            <div class="col-md-6">
+                                <input id="recent_address" type="text" class="form-control" name="recent_address" value="{{ old('recent_address') }}">
+
+                                @if ($errors->has('recent_address'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('recent_address') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('no_mifp') ? ' has-error' : '' }}">
+                            <label for="no_mifp" class="col-md-4 control-label">@lang('MIFP NU')</label>
+
+                            <div class="col-md-6">
+                                <input id="no_mifp" type="text" class="form-control" name="no_mifp" value="{{ old('no_mifp') }}">
+
+                                @if ($errors->has('no_mifp'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('no_mifp') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('place') ? ' has-error' : '' }}">
+                            <label for="place" class="col-md-4 control-label">@lang('Place MIFP')</label>
+
+                            <div class="col-md-6">
+                                <input id="place" type="text" class="form-control" name="place" value="{{ old('place') }}">
+
+                                @if ($errors->has('place'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('place') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('level') ? ' has-error' : '' }}">
+                            <label for="level" class="col-md-4 control-label"> @lang('Level')</label>
+
+                            <div class="col-md-6">
+                                <input id="level" type="text" class="form-control" name="level" value="{{ old('level') }}">
+
+                                @if ($errors->has('level'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('level') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('salary') ? ' has-error' : '' }}">
+                            <label for="salary" class="col-md-4 control-label"> @lang('Salary')</label>
+
+                            <div class="col-md-6">
+                                <input id="salary" type="number" class="form-control" name="salary" value="{{ old('salary') }}">
+
+                                @if ($errors->has('salary'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('salary') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
                         @endif
                         <div class="form-group{{ $errors->has('blood_group') ? ' has-error' : '' }}">
                             <label for="blood_group" class="col-md-4 control-label">@lang('Blood Group')</label>
@@ -190,16 +273,6 @@
                                     <strong>{{ $errors->first('gender') }}</strong>
                                 </span>
                                 @endif
-                            </div>
-                        </div>
-                       
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">@lang('Upload Profile Picture')</label>
-                            <div class="col-md-6">
-                                <input type="hidden" id="picPath" name="pic_path">
-                                @component('components.file-uploader',['upload_type'=>'profile'])
-                                @endcomponent
                             </div>
                         </div>
 

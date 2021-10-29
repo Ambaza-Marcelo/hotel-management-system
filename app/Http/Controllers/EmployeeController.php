@@ -51,30 +51,20 @@ class EmployeeController extends Controller
             'address' => 'required',
             'dob' => 'required',
             'joining_date' => 'required',
-            'photo' => 'required|image',
-            'signature' => 'required|image',
+            'image' => 'required|image',
             'duty_start' => 'required',
             'duty_end' => 'required',
+            'salary' => 'required'
         ]);
-             if($request->hasFile('photo')) {
-            $storagepath = $request->file('photo')->store('public/employee');
+
+            $storagepath = $request->file('image')->store('public/employee');
             $fileName = basename($storagepath);
-            $data['photo'] = $fileName;
-            }
-            else{
-                $data['photo'] = $request->get('oldPhoto','');
-            }
 
-            if($request->hasFile('signature')) {
-                $storagepath = $request->file('signature')->store('public/employee/signature');
-                $fileName = basename($storagepath);
-                $data['signature'] = $fileName;
-            }
-            else{
-                $data['signature'] = $request->get('oldSignature','');
-            }
+            $data = $request->all();
+            $data['image'] = $fileName;
 
-        Employee::create($request->all());
+            Employee::create($data);
+
         return redirect()->route('employees.index')->with('success','employee added successfully');
     }
 
@@ -87,6 +77,7 @@ class EmployeeController extends Controller
     public function show(Employee $employee)
     {
         //
+        return view('backend.hrm.employee.show',compact('employee'));
     }
 
     /**
@@ -123,44 +114,28 @@ class EmployeeController extends Controller
             'address' => 'required',
             'dob' => 'required',
             'joining_date' => 'required',
-            'photo' => 'required|image',
+            'image' => 'required|image',
             'signature' => 'required|image',
             'duty_start' => 'required',
             'duty_end' => 'required',
+            'salary' => 'required'
         ]);
-             if($request->hasFile('photo')) {
-            $storagepath = $request->file('photo')->store('public/employee');
+            
+
+        $data = $request->all();
+
+        if($request->hasFile('image')){
+            $file_path = "public/employee/".$employee->image;
+            Storage::delete($file_path);
+
+            $storagepath = $request->file('image')->store('public/employee');
             $fileName = basename($storagepath);
-            $data['photo'] = $fileName;
+            $data['image'] = $fileName;
 
-            //if file change then delete old one
-            $oldFile = $request->get('oldPhoto','');
-            if( $oldFile != ''){
-                $file_path = "public/employee/".$oldFile;
-                Storage::delete($file_path);
-            }
-        }
-        else{
-            $data['photo'] = $request->get('oldPhoto','');
         }
 
-        if($request->hasFile('signature')) {
-            $storagepath = $request->file('signature')->store('public/employee/signature');
-            $fileName = basename($storagepath);
-            $data['signature'] = $fileName;
-
-            //if file change then delete old one
-            $oldFile = $request->get('oldSignature','');
-            if( $oldFile != ''){
-                $file_path = "public/employee/signature/".$oldFile;
-                Storage::delete($file_path);
-            }
-        }
-        else{
-            $data['signature'] = $request->get('oldSignature','');
-        }
-
-        $employee->update($request->all());
+        $employee->fill($data);
+        $employee->save();
 
         return redirect()->route('employees.index')->with('success', 'Employee updated!');
 
@@ -175,5 +150,9 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         //
+        $file_path = "public/employee/".$employee->image;
+                Storage::delete($file_path);
+        $employee->delete();
+        return redirect()->back();
     }
 }

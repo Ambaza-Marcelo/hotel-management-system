@@ -8,7 +8,7 @@
                     <div class="box-header">
                         <h3 class="box-title">All sliders</h3>
                         <div class="">
-                            <a class="btn btn-info btn-sm" href="{{ URL::route('slider.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
+                            <a class="btn btn-info btn-sm" href="{{ URL::route('sliders.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
                         </div>
                     </div>
                     <div class="">
@@ -26,28 +26,28 @@
                             @foreach($sliders as $slider)
                                 <tr>
                                     <td>
-                                        <img class="img-responsive" style="max-height: 200px;" src="{{ asset('storage/sliders')}}/{{ $slider->image }}" alt="">
+                                        <img class="img-responsive" style="max-height: 100px;" src="{{ asset('storage/sliders')}}/{{ $slider->image }}" alt="">
                                     </td>
                                     <td>{{ $slider->title }}</td>
                                     <td> {{ $slider->subtitle }}</td>
                                     <td> {{ $slider->order }}</td>
                                     <td>
-                                    <div style="display: flex;">
-                                        <div class="btn-group">
-                                            <a title="Edit" href="{{URL::route('slider.edit',$slider->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>Edit</a>
+                                        <div style="display: flex;">
+                                            <div class="btn-group">
+                                                <a title="Edit" href="{{route('sliders.edit',$slider->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>Edit</a>
 
-                                            </a>
+                                                </a>
+                                            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <div class="btn-group">
+                                                <form class="myAction" method="POST" action="{{route('sliders.destroy',$slider->id)}}" onclick="return confirm('voulez-vous vraiment supprimer ?')">
+                                                    {{ method_field('DELETE') }}
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                                        <i class="fa fa-fw fa-trash"></i>Delete
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="btn-group">
-                                            <form class="myAction" method="POST" action="{{URL::route('slider.destroy',$slider->id)}}">
-                                                {{ method_field('DELETE') }}
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete">
-                                                    <i class="fa fa-fw fa-trash"></i>Delete
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
                                     </td>
                                 </tr>
                             @endforeach

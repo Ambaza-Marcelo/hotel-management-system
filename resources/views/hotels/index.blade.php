@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', __('Manage AMBAZAPP'))
+@section('title', __('Manage hotel'))
 
 @section('content')
     <div class="container-fluid">
@@ -35,7 +35,7 @@
                                     <td>{{$hotel->about}}</td>
                                     <td>
                                         <a class="btn btn-success btn-sm" role="button" href="{{ route('hotels.edit', $hotel) }}" dusk="edit-hotel-link">
-                                            <small>@lang('Edit AMBAZAPP')</small>
+                                            <small>@lang('Edit hotel')</small>
                                         </a>
                                     </td>
                                     <td>

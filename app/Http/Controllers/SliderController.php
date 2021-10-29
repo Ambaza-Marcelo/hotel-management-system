@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
@@ -15,7 +16,7 @@ class SliderController extends Controller
     public function index()
     {
         //
-        $sliders = Slider::orderBy('order', 'asc')->paginate(25);
+        $sliders = Slider::orderBy('order', 'asc')->paginate(5);
         if(count($sliders)>10){
             Session::flash('warning','Don\'t add more than 10 slider for better site performance!');
         }
@@ -45,8 +46,8 @@ class SliderController extends Controller
         //
         $request->validate([
             'title' => 'required|min:5|max:255',
-            'subtitle' => 'required|min:5|max:255',
-            'image' => 'required|mimes:jpeg,jpg,png|max:2048|dimensions:min_width=1900,min_height=1200',
+            'subtitle' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png|max:3072',
 
         ]);
 
@@ -58,7 +59,7 @@ class SliderController extends Controller
 
         Slider::create($data);
 
-        return redirect()->back()->with('success', 'New slider item created.');
+        return redirect()->route('sliders.index')->with('success', 'New slider item created.');
     }
 
     /**
@@ -67,7 +68,7 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show($id)
     {
         //
     }
@@ -78,9 +79,10 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Slider $slider)
+    public function edit($id)
     {
         //
+        $slider = Slider::findOrFail($id);
         return view('backend.site.home.slider.edit', compact('slider'));
     }
 
@@ -91,16 +93,17 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Slider $slider)
+    public function update(Request $request, $id)
     {
         //
         $request->validate([
             'title' => 'required|min:5|max:255',
-            'subtitle' => 'required|min:5|max:255',
-            'image' => 'mimes:jpeg,jpg,png|max:2048|dimensions:min_width=1900,min_height=1200',
+            'subtitle' => 'required',
+            'order' => 'required',
+            'image' => 'mimes:jpeg,jpg,png|max:3072',
 
         ]);
-
+        $slider = Slider::findOrFail($id);
         $data = $request->all();
 
         if($request->hasFile('image')){
@@ -116,7 +119,7 @@ class SliderController extends Controller
         $slider->fill($data);
         $slider->save();
 
-        return redirect()->route('slider.index')->with('success', 'Slider item updated.');
+        return redirect()->route('sliders.index')->with('success', 'Slider item updated.');
     }
 
     /**
@@ -125,10 +128,13 @@ class SliderController extends Controller
      * @param  \App\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Slider $slider)
+    public function destroy($id)
     {
         //
+        $slider = Slider::findOrFail($id);
+        $file_path = "public/sliders/".$slider->image;
+            Storage::delete($file_path);
         $slider->delete();
-        return redirect()->route('slider.index')->with('success', 'Slider item deleted.');
+        return redirect()->route('sliders.index')->with('success', 'Slider item deleted.');
     }
 }

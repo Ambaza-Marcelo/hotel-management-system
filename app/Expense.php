@@ -8,6 +8,7 @@ class Expense extends Model
 {
     //
     protected $fillable = [
+    	'date',
     	'title',
     	'total'
     ];

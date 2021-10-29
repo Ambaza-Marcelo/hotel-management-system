@@ -20,7 +20,7 @@ class Employee extends Model
     	'dob',
     	'joining_date',
     	'photo',
-    	'signature',
+    	'salary',
     	'duty_start',
     	'duty_end',
     ];

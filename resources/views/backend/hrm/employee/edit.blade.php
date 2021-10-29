@@ -56,6 +56,8 @@
                                         	<option>catholic</option>
                                         	<option>islam</option>
                                         	<option>SDA</option>
+                                            <option>pentecote</option>
+                                            <option>Methodiste libre</option>
                                         </select>
                                         <span class="form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('religion') }}</span>
@@ -85,7 +87,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
-                                        <label for="id_card">ID Card No. / Employee ID<span class="text-danger">*</span></label>
+                                        <label for="id_card">ID Card No.<span class="text-danger">*</span></label>
                                         <input  type="text" class="form-control" name="id_card" value="{{$employee->id_card}}" minlength="4" maxlength="50">
                                         <span class="fa fa-id-card form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('id_card') }}</span>
@@ -149,10 +151,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
-                                        <label for="photo">Signature<br><span class="text-black"></span></label>
-                                        <input  type="file" class="form-control" accept=".jpeg, .jpg, .png" name="signature" value="{{$employee->signature}}">
-                                        <span class="glyphicon glyphicon-open-file form-control-feedback" style="top:30px;"></span>
-                                        <span class="text-danger">{{ $errors->first('signature') }}</span>
+                                        <label for="photo">Salary<br><span class="text-black"></span></label>
+                                        <input  type="number" class="form-control" name="salary" value="{{$employee->salary}}">
+                                        <span class="text-danger">{{ $errors->first('salary') }}</span>
                                     </div>
                                 </div>
                             </div>

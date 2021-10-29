@@ -256,46 +256,9 @@ a:focus {
     list-style: none;
 }
 
-.glyphicon-glass{
-    color: rgb(128, 13, 5);
-    font-size: 90px;
-}
-.glyphicon-headphones{
-    color: rgb(4, 22, 74);
-    font-size: 90px;
-}
-.glyphicon-briefcase{
-    color: rgb(40, 74, 9);
-    font-size: 90px;
-}
-.glyphicon-cutlery{
-    color: rgb(125, 122, 123);
-    font-size: 90px;
-}
-.glyphicon-bed{
-    color: rgb(156, 6, 133);
-    font-size: 90px;
-}
-.glyphicon-cog{
-    color: rgb(173, 89, 21);
-    font-size: 90px;
 
-}
-.glyphicon-certificate{
-    color: rgb(59, 5, 12);
-    font-size: 90px;
-}
-.glyphicon-lock{
-    color: rgb(15, 1, 1);
-    font-size: 90px;
-}
-.glyphicon-tower{
-    color: rgb(89, 62, 6);
-    font-size: 90px;
-}
 #glyphicon > ul >li{
-    margin-left: 150px;
-    margin-top: 40px;
+    margin-left: 50px;
 }
 #draggable{
     display: flex;

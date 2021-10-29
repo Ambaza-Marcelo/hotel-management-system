@@ -2,6 +2,11 @@
 @section('title','employee list')
 @section('content')
 	<div class="container">
+		@if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+         @endif
 		<div style="margin-top: 10px;">        
 			      <div class=" col-sm-10">
 			        <a href="{{ route('employees.create') }}" class="btn btn-primary">+create</a>
@@ -27,7 +32,7 @@
 		      <tr class="success">
 		        <td>{{$loop->index + 1}}</td>
 		        <td>
-		        	<img class="img-responsive center" style="height: 35px; width: 35px;" src="@if($employee->photo ){{ asset('storage/employee')}}/{{ $employee->photo }} @else {{ asset('images/marcelo.jpg')}} @endif" alt="">
+		        	<img class="img-responsive" style="height: 35px; width: 35px;" src="{{ asset('storage/employee/'.$employee->image)}}" alt="">
 		        </td>
 		        <td>{{$employee->name}}</td>
 		        <td>{{$employee->id_card}}</td>
@@ -37,13 +42,13 @@
 		        	<form action="{{ route('employees.destroy',$employee->id) }}" method="POST">
 		        		@csrf
 		        		@method('DELETE')
-		        	<a class="btn btn-info btn-sm" role="button" href="">
+		        	<a class="btn btn-info btn-sm" role="button" href="{{ route('employees.show',$employee->id)}}">
                              <small>@lang('Show Employee')</small>
                 	</a>
                 	<a class="btn btn-primary btn-sm" role="button" href="{{ route('employees.edit',$employee->id) }}">
                              <small>@lang('Edit Employee')</small>
                 	</a>
-                	<a class="btn btn-danger btn-sm" role="button" href="{{ route('employees.destroy',$employee->id) }}">
+                	<a class="btn btn-danger btn-sm" role="button" href="{{ route('employees.destroy',$employee->id) }}" onclick="return confirm('voulez-vous vraiment supprimer ?')">
                              <small>@lang('delete Employee')</small>
                 	</a>
 		        </td>

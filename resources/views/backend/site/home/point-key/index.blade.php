@@ -26,19 +26,27 @@
 		        <td>{{$pointKey->title}}</td>
 		        <td>{{$pointKey->description}}</td>
 		        <td>
-		        	<form action="" method="POST">
-		        		@csrf
-		        		@method('DELETE')
-                	<a class="btn btn-primary btn-sm" role="button" href="">
-                             <small>@lang('Edit')</small>
-                	</a>
-                	<a class="btn btn-danger btn-sm" role="button" href="">
-                             <small>@lang('delete')</small>
-                	</a>
+		        	<div style="display: flex;">
+                        <div class="btn-group">
+                            <a title="Edit" href="{{route('point-keys.edit',$pointKey->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>Edit</a>
+
+                            </a>
+                        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="btn-group">
+                            <form class="myAction" method="POST" action="{{route('point-keys.destroy',$pointKey->id)}}" onclick="return confirm('voulez-vous vraiment supprimer ?')">
+                                                    {{ method_field('DELETE') }}
+                                                    @csrf
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                                        <i class="fa fa-fw fa-trash"></i>Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
 		        </td>
 		      </tr>
 		      @endforeach
 		    </tbody>
 		  </table>
+		  {{$pointkeys->links()}}
 	</div>
 @endsection

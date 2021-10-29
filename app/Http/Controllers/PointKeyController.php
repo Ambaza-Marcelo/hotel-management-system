@@ -15,7 +15,7 @@ class PointKeyController extends Controller
     public function index()
     {
         //
-        $pointkeys = PointKey::orderBy('created_at', 'desc')->paginate();
+        $pointkeys = PointKey::paginate(10);
         return view('backend.site.home.point-key.index',compact('pointkeys'));
     }
 
@@ -41,7 +41,7 @@ class PointKeyController extends Controller
         //
         $request->validate([
             'title' => 'required',
-            'description'=> 'required|min:5',
+            'description'=> 'required|min:5|max:5000',
         ]);
 
         PointKey::create($request->all());
@@ -68,6 +68,7 @@ class PointKeyController extends Controller
     public function edit(PointKey $pointKey)
     {
         //
+        return view('backend.site.home.point-key.edit',compact('pointKey'));
     }
 
     /**
@@ -80,6 +81,13 @@ class PointKeyController extends Controller
     public function update(Request $request, PointKey $pointKey)
     {
         //
+        $request->validate([
+            'title' => 'required',
+            'description'=> 'required|min:5|max:5000',
+        ]);
+
+        $pointKey->update($request->all());
+        return redirect()->route('point-keys.index')->with('success','point key updated successfuly');
     }
 
     /**
@@ -91,5 +99,7 @@ class PointKeyController extends Controller
     public function destroy(PointKey $pointKey)
     {
         //
+        $pointKey->delete();
+        return redirect()->back();
     }
 }

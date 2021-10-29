@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Hotel;
 
 class HomeController extends Controller
 {
@@ -30,4 +31,12 @@ class HomeController extends Controller
             return redirect('/masters');
         }
     }
+
+    public function hotel()
+    {
+        $hotel = Hotel::all();
+        return view('home',compact('hotel'));
+    }
+
+    
 }

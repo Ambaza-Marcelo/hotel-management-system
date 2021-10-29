@@ -65,7 +65,7 @@ class SiteController extends Controller
 
 
         //for get request
-        $images = SiteMeta::where('meta_key','gallery')->paginate(env('MAX_RECORD_PER_PAGE',25));
+        $images = SiteMeta::where('meta_key','gallery')->paginate(20);
 
         return view('backend.site.gallery.content', compact('images'));
     }
@@ -83,7 +83,7 @@ class SiteController extends Controller
                 'image.max' => 'The :attribute size must be under 2MB.',
             ];
             $this->validate($request, [
-                'image' => 'mimes:jpeg,jpg,png|max:2048',
+                'image' => 'mimes:jpeg,jpg,png|max:3072',
             ]);
 
             $storagepath = $request->file('image')->store('public/gallery');
@@ -111,13 +111,12 @@ class SiteController extends Controller
     {
 
         $image = SiteMeta::findOrFail($id);
+        $file_path = "/public/gallery/".$image->meta_value;
+            Storage::delete($file_path);
         Storage::delete('/public/gallery/' . $image->meta_value);
         $image->delete();
 
-        return [
-            'success' => true,
-            'message' => 'Image deleted!'
-        ];
+        return redirect()->back();
     }
 
 

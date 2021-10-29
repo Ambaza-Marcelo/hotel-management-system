@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Expense;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExpenseController extends Controller
 {
@@ -15,8 +16,16 @@ class ExpenseController extends Controller
     public function index()
     {
         //
-        $expenses = Expense::all();
-        return view('expense.index',compact('expenses'));
+       $expenseParMois = Expense::select(
+                        DB::raw('MONTH(date) as month,YEAR(date) as year'),
+                        DB::raw('sum(total) as total_expense'))->groupBy('month')->paginate(12);
+
+       $expenseParJours = Expense::select(
+                        DB::raw('Day(date) as day,MONTH(date) as month,YEAR(date) as year'),
+                        DB::raw('sum(total) as total_expense'))->groupBy('day','month','year')->paginate(30);
+
+        $expenses = Expense::paginate(25);
+        return view('expense.index',compact('expenses','expenseParMois','expenseParJours'));
     }
 
     /**
@@ -40,7 +49,8 @@ class ExpenseController extends Controller
     {
         //
         $request->validate([
-            'title' => 'required',
+            'date' => 'required',
+            'title' => '',
             'total' => 'required',
         ]);
 
@@ -82,6 +92,7 @@ class ExpenseController extends Controller
     {
         //
         $request->validate([
+            'date' => 'required',
             'title' => 'required',
             'total' => 'required'
         ]);
@@ -100,6 +111,6 @@ class ExpenseController extends Controller
     {
         //
         $expense->delete();
-        return redirect()->route('expenses.index')->with('success','deleted successfully');
+        return redirect()->back();
     }
 }

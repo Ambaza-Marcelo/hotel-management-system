@@ -9,8 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title') - {{ (Auth::check() && (Auth::user()->role == 'customer' || Auth::user()->role == 'employee'
-        || Auth::user()->role == 'admin' || Auth::user()->role == 'accountant'))?Auth::user()->hotel->name:config('app.name') }}</title>
+    <title>@yield('title') - {{config('app.name')}}</title>
 
     <link rel="stylesheet" href="{{ url('css/loader.css') }}">
 
@@ -32,6 +31,7 @@
     <div id="app">
         @include('components.navbar-top')
         @yield('content')
+        @yield('javascript')
     </div>
     <link rel="stylesheet" href="{{ url('css/vendors.css') }}" id="bootswatch-print-id">
     <link rel="stylesheet" href="{{ url('css/application.css') }}">

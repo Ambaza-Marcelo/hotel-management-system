@@ -8,7 +8,7 @@
                     <div class="box-header">
                         <h3 class="box-title">All Event</h3>
                         <div class="">
-                            <a class="btn btn-info btn-sm" href="{{ URL::route('event.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
+                            <a class="btn btn-info btn-sm" href="{{ URL::route('events.create') }}"><i class="fa fa-plus-circle"></i> Add New</a>
                         </div>
                     </div>
                     <div class="">
@@ -27,29 +27,29 @@
                             @foreach($events as $event)
                                 <tr>
                                     <td>
-                                        <img class="img-responsive" style="max-height: 200px;" src="{{ asset('storage/events')}}/{{ $event->image }}" alt="">
+                                        <img class="img-responsive" style="max-height: 100px;" src="{{ asset('storage/events')}}/{{ $event->image }}" alt="">
                                     </td>
                                     <td>{{ $event->title }}</td>
                                     <td> {{ $event->description }}</td>
                                     <td> {{ $event->date }}</td>
                                     <td> {{ $event->time }}</td>
                                     <td>
-                                    <div style="display: flex;">
-                                        <div class="btn-group">
-                                            <a title="Edit" href="{{URL::route('event.edit',$event->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>Edit</a>
+                                        <div style="display: flex;">
+                                            <div class="btn-group">
+                                                <a title="Edit" href="{{route('events.edit',$event->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>Edit</a>
 
-                                            </a>
+                                                </a>
+                                            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <div class="btn-group">
+                                                <form class="myAction" method="POST" action="{{route('events.destroy',$event->id)}}" onclick="return confirm('voulez-vous vraiment supprimer ?')">
+                                                    {{ method_field('DELETE') }}
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                                        <i class="fa fa-fw fa-trash"></i>Delete
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="btn-group">
-                                            <form class="myAction" method="POST" action="{{URL::route('event.destroy',$event->id)}}">
-                                                {{ method_field('DELETE') }}
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete">
-                                                    <i class="fa fa-fw fa-trash"></i>Delete
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
                                     </td>
                                 </tr>
                             @endforeach

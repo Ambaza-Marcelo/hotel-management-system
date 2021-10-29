@@ -27,7 +27,7 @@ class CreateEmployeesTable extends Migration
             $table->string('dob');
             $table->string('joining_date');
             $table->string('photo');
-            $table->string('signature');
+            $table->string('salary');
             $table->string('duty_start');
             $table->string('duty_end');
             $table->timestamps();

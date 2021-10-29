@@ -1,14 +1,15 @@
 <style type="text/css">
 	footer{
 		/* display: flex;*/
-		position: absolute;
+		
 		font-size: 22px;
 		font-style: normal;
 		list-style: none;
 		background-image: url("{{asset('background/1.jpg')}}");
 		opacity: 0.8;
-		background-size: cover;
+		backface-visibility: all;
 		width: 100%;
+
 	}
 
 	/*.footer-ambaza{
@@ -30,56 +31,67 @@
 		text-decoration: none;
 	}
 	.section1{
-		margin-left: 45%;
+		margin-left: 30%;
 		text-decoration: none;
 		padding: 5%;
 		margin-top: 5%;
 	}
 	.section2{
-		margin-left: 40%;
+		margin-left: 30%;
 		text-decoration: none;
 		padding: 5%;
 		margin-top: 5%;
 	}
 	.section3{
-		margin-left: 45%;
+		margin-left: 30%;
 		text-decoration: none;
 		padding: 5%;
 		margin-top: 5%;
 	}
 	
 </style>
-
+<br><br>
+<div class="container-fluid">
 <footer>
 			<div>
-                  <p class="col-xl-12">@lang('Subscribe')</p>
+                  <p></p>
                   <form style="display: flex;" id="subscribeFrom" class="subscribe" action="{{URL::route('site.subscribe')}}" method="POST" enctype="multipart/form-data" >
                     @csrf
-                    <input type="email" name="email" class="form-control" required placeholder="@lang('write email')" aria-required="true">
-                    <input type="submit" class="btn btn-danger" value="@lang('subscribe')">
+                    <input type="email" name="email" class="form-control" required placeholder="@lang('votre e-mail')" aria-required="true">
+                    <input type="submit" class="btn btn-danger" value="@lang('S\'abonner')">
                   </form>
                 </div> 
-			<div class="text-center">
+			<div class="text-center container-fluid">
 			<div class="col-md-8 footer-ambaza">
 				<section class="section1 text-center">
-					<h2 class="corner-radius" id="contact">@lang('contact us')</h2>
-					<ul class="address">
+					<h2 class="corner-radius" id="contact">@lang('Nous travaillons:')</h2>
+					<ul class="address container-fluid">
 						<li>
-							<a href="">@lang('Adress')</a>
+							@lang('Lundi : 24h/24h')
 						</li>
-			
 						<li>
-							<a href="">@lang('Phone Number')</a>
+							@lang('Mard : 24h/24h')
 						</li>
-
 						<li>
-							<a href="">@lang('Email')</a>
+							@lang('Mercredi : 24h/24h')
+						</li>
+						<li>
+							@lang('Jeudi : 24h/24h')
+						</li>
+						<li>
+							@lang('Vendredi : 24h/24h')
+						</li>
+						<li>
+							@lang('Samedi : 24h/24h')
+						</li>
+						<li>
+							@lang('Dimanche : 24h/24h')
 						</li>
 					</ul>
 
 				</section>
 				<section class="col-md-8 col-xl-16 text-center section2">
-					<h2 class="">@lang('help links')
+					<h2 class="">@lang('Hotel')
 					</h2>
 					<ul class="help-link">
 						<li>
@@ -87,16 +99,16 @@
 						</li>
 			
 						<li>
-							<a href="{{URL::route('site.gallery_view')}}" id="gallery">@lang('Gallery')</a>
+							<a href="{{URL::route('site.gallery_view')}}" id="gallery">@lang('Gallerie')</a>
 						</li>
 
 						<li>
-							<a href="{{URL::route('site.contact_us_view')}}">@lang('Contact Us')</a>
+							<a href="{{URL::route('site.contact_us_view')}}">@lang('Contactez-nous')</a>
 						</li>
 					</ul>
 				</section>
 				<section class="col-md-8 col-xl-16 text-center section3">
-					<h2 class="" id="help">@lang('Social Media links')
+					<h2 class="" id="help">@lang('Réseaux sociaux')
 					</h2>
 					<ul class="social-media">
 						<li>
@@ -111,17 +123,17 @@
 							<a href="">@lang('Linkden')</a>
 						</li>
 						<li>
-							<a href="">@lang('Tweeter')</a>
+							<a href="">@lang('Twitter')</a>
 						</li>
 					</ul>
 				</section>
 			</div>
 		</div>
-		<div class="footer-bottom">
-			<div class="col-md-8">
-				<div class="text-center">{{config('app.name')}} &copy; {{date('Y')}} || @lang('Developped And Maintained by')
-					<a href="" class="site">{{config('app.maintainer')}}</a>
+
+				<div style="text-align: center;">{{config('app.name')}} &copy; {{date('Y')}} || @lang('Tous les droits sont réservés || ')
+					<a href="mailto:ambazamarcellin2001@gmail.com" class="site">{{config('app.maintainer')}}</a>
 				</div>
-			</div>
-		</div>
+			
+
 	</footer>
+</div>

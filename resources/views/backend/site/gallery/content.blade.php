@@ -47,7 +47,13 @@
                                     <div class="col-xs-6 col-md-3 thumbnail">
                                         <img class="img-responsive" src="{{asset('storage/gallery/'.$image->meta_value)}}" alt="image">
                                         <div class="middle">
-                                            <a href="#0" data-id="{{$image->id}}" class="remove-image" title="Delete Image" ><i class="fa fa-5x fa-remove"></i>Remove Image </a>
+                                            <form class="myAction" method="POST" action="{{route('site.gallery_image_delete',$image->id)}}" onclick="return confirm('voulez-vous vraiment supprimer ?')">
+                                                    {{ method_field('DELETE') }}
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                                        <i class="fa fa-fw fa-trash"></i>Remove Image 
+                                                    </button>
+                                                </form>
                                         </div>
                                     </div>
                                 @endforeach

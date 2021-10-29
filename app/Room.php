@@ -8,6 +8,11 @@ class Room extends Model
 {
     //
     protected $fillable =[
-    	'title','description','old_price','new_price','type','num','image',
+    	'num_room','description','image','category_id'
     ];
+
+    public function category()
+    {
+    	return $this->belongsTo('App\Category');
+    }
 }

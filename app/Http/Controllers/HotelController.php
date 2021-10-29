@@ -15,7 +15,7 @@ class HotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-      $hotels = Hotel::orderBy('created_at', 'desc')->paginate();
+      $hotels = Hotel::orderBy('created_at', 'desc')->paginate(5);
 
       return view('hotels.index', compact('hotels'));
     }
@@ -37,7 +37,7 @@ class HotelController extends Controller
             'adress' =>'required|min:5|max:255',
             'about' =>'required|min:5|max:255',
             'language' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png,svg|max:2048|dimensions:min_width=1900,min_height=1200',
+            'image' => 'required|mimes:jpeg,jpg,png,svg|max:3072',
             'theme'       => 'flatly'
         ]);
 
@@ -72,8 +72,8 @@ class HotelController extends Controller
          $request->validate([
             'name' => 'required|min:4|max:255',
             'adress' => 'required|min:5|max:255',
-            'about' => 'required|min:5|max:255',
-            'image' => 'mimes:jpeg,jpg,png|max:2048|dimensions:min_width=1900,min_height=1200',
+            'about' => 'required',
+            'image' => 'mimes:jpeg,jpg,png|max:3072',
 
         ]);
 

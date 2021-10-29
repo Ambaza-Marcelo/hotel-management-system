@@ -19,7 +19,7 @@ class CreateAboutsTable extends Migration
             $table->string('telephone');
             $table->string('email');
             $table->string('adress');
-            $table->string('about');
+            $table->text('about');
             $table->timestamps();
         });
     }

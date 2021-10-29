@@ -13,7 +13,7 @@ use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\CreateAdminRequest;
 use App\Http\Requests\User\CreateEmployeeRequest;
 use App\Http\Requests\User\ChangePasswordRequest;
-use App\Http\Requests\User\CreateCustomerRequest;
+use App\Http\Requests\User\CreateTechnicianRequest;
 use App\Http\Requests\User\CreateAccountantRequest;
 use App\Events\UserRegistered;
 use Illuminate\Support\Facades\Log;
@@ -87,6 +87,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /*
     public function store(CreateUserRequest $request)
     {
         DB::transaction(function () use ($request) {
@@ -106,7 +107,7 @@ class UserController extends Controller
         });
 
         return back()->with('status', __('Saved'));
-    }
+    }*/
 
     /**
      * @param CreateAdminRequest $request
@@ -134,7 +135,7 @@ class UserController extends Controller
     public function storeAccountant(CreateAccountantRequest $request)
     {
         $password = $request->password;
-        $tb = $this->userService->storeStaff($request, 'accountant');
+        $tb = $this->userService->storeAccountant($request, 'accountant');
         try {
             // Fire event to send welcome email
             event(new UserRegistered($tb, $password));
@@ -145,6 +146,20 @@ class UserController extends Controller
         return back()->with('status', __('Saved'));
     }
 
+
+     public function storeTechnician(CreateTechnicianRequest $request)
+    {
+        $password = $request->password;
+        $tb = $this->userService->storeTechnician($request, 'technician');
+        try {
+            // Fire event to send welcome email
+            event(new UserRegistered($tb, $password));
+        } catch(\Exception $ex) {
+            Log::info('Email failed to send to this address: '.$tb->email);
+        }
+
+        return back()->with('status', __('Saved'));
+    }
     /**
      * Display the specified resource.
      *
@@ -152,9 +167,9 @@ class UserController extends Controller
      *
      * @return UserResource
      */
-    public function show($user_code)
+    public function show($id)
     {
-        $user = $this->userService->getUserByUserCode($user_code);
+        $user = $this->userService->getUserByUserCode($id);
 
         return view('profile.user', compact('user'));
     }

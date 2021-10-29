@@ -2,7 +2,7 @@
 @section('title','create point key')
 @section('content')
         <div class="container">
-              <h2>Create Category</h2>
+              <h2>Create Point Key</h2>
               <form class="form-horizontal" method="POST" action="{{ route('point-keys.store') }}">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">

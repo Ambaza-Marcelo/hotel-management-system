@@ -47,7 +47,7 @@
                                         <td> {!! $qa->a !!}</td>
                                         <td>
                                             <div class="btn-group">
-                                                <form class="myAction" method="POST" action="{{URL::route('site.faq_delete',$faq->id)}}">
+                                                <form class="myAction" method="POST" action="{{URL::route('site.faq_delete',$faq->id)}}" onclick="return confirm('voulez-vous vraiment supprimer ?')">
                                                     @csrf
                                                     <button type="submit" class="btn btn-danger btn-sm" title="Delete">
                                                         <i class="fa fa-fw fa-trash"></i>Delete

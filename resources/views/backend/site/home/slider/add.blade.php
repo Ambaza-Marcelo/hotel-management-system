@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="box box-info">
-                    <form novalidate id="entryForm" action="{{route('slider.store')}}" method="post" enctype="multipart/form-data">
+                    <form novalidate id="entryForm" action="{{route('sliders.store')}}" method="post" enctype="multipart/form-data">
                         <div class="box-body">
                             @csrf
                             <div class="row">
@@ -20,8 +20,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group has-feedback">
-                                        <label for="subtitle">subtitle<span class="text-danger"></span></label>
-                                        <input type="text" class="form-control" name="subtitle" placeholder="subtitle">
+                                        <label for="subtitle">Subtitle<span class="text-danger"></span></label>
+                                        <textarea name="subtitle" class="form-control"></textarea>
                                         <span class="form-control-feedback"></span>
                                         <span class="text-danger">{{ $errors->first('subtitle') }}</span>
                                     </div>

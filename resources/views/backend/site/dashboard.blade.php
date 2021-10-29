@@ -16,7 +16,7 @@
 
                     <div class="jumbotron">
                         <img src="{{asset('images/clipart5.png')}}" alt="subscribers">
-                        <span>Subscribers</span>
+                        <span>Abonnés</span>
                         <span">{{$subscribers}}<small></small></span>
                     </div>
                 </div>
@@ -41,8 +41,7 @@
 
                     <div class="jumbotron">
                         <img src="{{asset('images/clipart2.png')}}" alt="subscribers">
-                        <span>Developped and Maintained by</span>
-                        <span">Ambaza M.<small></small></span>
+                        <span>Dévélopé par:Ambaza-Marcellin</span>
                     </div>
                 </div>
             </div>
@@ -51,8 +50,8 @@
                 <div class="">
                     <div class="jumbotron">
                         <img src="{{asset('images/clipart1.png')}}" alt="photos">
-                        <span class="i">Bookings</span>
-                        <span class="">{{$photos}}</span>
+                        <span class="i"></span>
+                        <span class=""></span>
                     </div>
                 </div>
                 <!-- /.info-box -->

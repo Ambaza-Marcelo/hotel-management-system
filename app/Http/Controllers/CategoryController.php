@@ -1,3 +1,5 @@
+
+
 <?php
 
 namespace App\Http\Controllers;
@@ -40,7 +42,9 @@ class CategoryController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'price' => 'required',
+            'discount_price' => 'required'
         ]);
         Category::create($request->all());
         return redirect()->route('categories.index')->with('success','Category added successfully');
@@ -80,7 +84,9 @@ class CategoryController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'price' => 'required',
+            'discount_price' => 'required'
         ]);
         $category->update($request->all());
         return redirect()->route('categories.index')->with('success','Category updated successfully');
@@ -95,5 +101,7 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        $category->delete();
+        return redirect()->back();
     }
 }
