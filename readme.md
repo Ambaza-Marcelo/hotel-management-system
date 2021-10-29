@@ -48,7 +48,7 @@ N.B:
 AKABIRYA:
 		-SIMPLICITE
 		-RAPIDITE
-		-SECURISE
+		-SECURITE
 
 <img src="screenshoots/slider.png"><br>
 <img src="screenshoots/room.png"><br>
