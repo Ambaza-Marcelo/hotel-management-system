@@ -133,7 +133,7 @@ AKABIRYA:
    step4.
     -run the following commands <br>
     	*php artisan migrate<br>
-    	*php artisan db:seed
+    	*php artisan db:seed<br>
     	*php artisan serve
 
 
