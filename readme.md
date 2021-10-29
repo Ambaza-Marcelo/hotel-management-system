@@ -1,8 +1,8 @@
 
 
-<img src="screenshoots/report1.png">
+<img src="screenshoots/report1.png"><br>
 
-
+<img src="screenshoots/report2.png"><br>
 HOTEL MANAGEMENT SYSTEM
 
 				#AMBAZA MARCELLIN
