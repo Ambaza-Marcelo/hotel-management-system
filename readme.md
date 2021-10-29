@@ -50,7 +50,7 @@ AKABIRYA:
 		-RAPIDITE
 		-SECURISE
 
-
+<img src="screenshoots/slider.png"><br>
 
 ---HELP----- TO INSTALL
 
