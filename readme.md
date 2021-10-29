@@ -1,6 +1,6 @@
 
 
-<img src="asset/screenshoots/report1.jpg">
+<img src="screenshoots/report1.jpg">
 
 
 HOTEL MANAGEMENT SYSTEM
