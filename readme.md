@@ -60,13 +60,13 @@ AKABIRYA:
  	<span>-cd repository</span><br>
  	<span>-git clone </span><br>
  <h2>step 2:</h2>
- 	-go to env.dusk.example and rename it as env.
- 	-DB_CONNECTION=mysql
-	-DB_HOST=127.0.0.1
-	-DB_PORT=3306
-	-DB_DATABASE=dbname
-	-DB_USERNAME=root
-	-DB_PASSWORD=
+ 	<span>-go to env.dusk.example and rename it as env.</span><br>
+ 	<span>-DB_CONNECTION=mysql</span><br>
+	<span>-DB_HOST=127.0.0.1</span><br>
+	<span>-DB_PORT=3306</span><br>
+	<span>-DB_DATABASE=dbname</span><br>
+	<span>-DB_USERNAME=root</span><br>
+	<span>-DB_PASSWORD=</span><br>
 
  step3.
  	-go to database file in config folder
