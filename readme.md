@@ -55,7 +55,7 @@ AKABIRYA:
 
 ---HELP----- TO INSTALL
 
- step1.
+ <h2>step1:</h2>
  	-copy
  	-cd repository
  	-git clone 
