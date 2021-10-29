@@ -55,7 +55,7 @@ AKABIRYA:
 
 ---HELP----- TO INSTALL
 
- <h2>step1:</h2>
+ <h2>step 1:</h2>
  	<span>-copy</span><br>
  	<span>-cd repository</span><br>
  	<span>-git clone </span><br>
@@ -68,8 +68,8 @@ AKABIRYA:
 	<span>-DB_USERNAME=root</span><br>
 	<span>-DB_PASSWORD=</span><br>
 
- step3.
- 	-go to database file in config folder
+ <h2>step 3:</h2>
+ 	<span>-go to database file in config folder</span><br>
  	'connections' => [
 
         'sqlite' => [
