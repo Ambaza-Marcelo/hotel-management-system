@@ -130,6 +130,3 @@ AKABIRYA:
     	*php artisan migrate<br>
     	*php artisan db:seed<br>
     	*php artisan serve
-
-
-le 30/10/2021
