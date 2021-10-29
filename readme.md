@@ -56,9 +56,9 @@ AKABIRYA:
 ---HELP----- TO INSTALL
 
  <h2>step1:</h2>
- 	<span>-copy</span>
- 	<span>-cd repository</span>
- 	<span>-git clone </span>
+ 	<span>-copy</span><br>
+ 	<span>-cd repository</span><br>
+ 	<span>-git clone </span><br>
  step2.
  	-go to env.dusk.example and rename it as env.
  	-DB_CONNECTION=mysql
