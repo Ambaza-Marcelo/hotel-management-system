@@ -59,7 +59,7 @@ AKABIRYA:
  	<span>-copy</span><br>
  	<span>-cd repository</span><br>
  	<span>-git clone </span><br>
- step2.
+ <h2>step 2:</h2>
  	-go to env.dusk.example and rename it as env.
  	-DB_CONNECTION=mysql
 	-DB_HOST=127.0.0.1
