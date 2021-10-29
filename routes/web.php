@@ -11,10 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-    */
-
 Route::get('/', 'WelcomeController@home')->name('home');
 
 Route::get('/welcome-page','WelcomeController@home')->name('welcome-page');
