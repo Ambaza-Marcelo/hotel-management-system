@@ -51,6 +51,7 @@ AKABIRYA:
 		-SECURISE
 
 <img src="screenshoots/slider.png"><br>
+<img src="screenshoots/room.png"><br>
 
 ---HELP----- TO INSTALL
 
