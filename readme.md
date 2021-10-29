@@ -131,7 +131,7 @@ AKABIRYA:
     ],
 
    step4.
-    -run the following commands
+    -run the following commands <br>
     	*php artisan migrate
     	*php artisan db:seed
     	*php artisan serve
