@@ -2,7 +2,19 @@
 @section('title','report bar list')
 @section('content')
     <section class="container">
-        
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+         @endif
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <div class="box-header">
+                        <h3 class="box-title">Rapport</h3>
+                        <div class="">
+                            <a class="btn btn-info btn-sm" href="{{ route('report-bar-create') }}"><i class="fa fa-plus-circle"></i> Créer</a>&nbsp;&nbsp;<a class="btn btn-success btn-sm" href="{{ url('report-create-pdf') }}"><i class="fa fa-plus-circle"></i> Exporter En PDF</a>
+                        </div>
                         <br>
                     </div>
                     <div class="">
