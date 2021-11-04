@@ -20,7 +20,7 @@ class CreateRoomsTable extends Migration
             $table->bigInteger('category_id')->unsigned();
             $table->string('image');
 
-            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('cascade');
+            
             $table->timestamps();
 
             
