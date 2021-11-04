@@ -225,6 +225,17 @@ class ReportController extends Controller
     }
 
 
+    public function createPDF() {
+      // retreive all records from db
+      $data = Report::all();
+
+      view()->share('report',$data);
+      $pdf = PDF::loadView('pdf.report', $data);
+
+      // download PDF file with download method
+      return $pdf->download('pdf_file.pdf');
+    }
+
     public function createPDFDay() {
       // retreive all records from db
         $data = Report::select(
