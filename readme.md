@@ -38,14 +38,14 @@
 			16.Statistiques du Systeme
 
 
-N.B:
-		-possibilite d'acceder a distance via PC ,smartPhone ,etc.
-		-possibilite de gerer plusieurs choses en meme temps
+<h2>N.B:</h2>
+		<p>possibilite d'acceder a distance via PC ,smartPhone ,etc.</p>
+		<p>possibilite de gerer plusieurs choses en meme temps</p>
 
 
 
 
-AKABIRYA:
+<h2>AKABIRYA:</h2>
 		-SIMPLICITE
 		-RAPIDITE
 		-SECURITE
