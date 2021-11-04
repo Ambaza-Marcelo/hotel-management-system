@@ -53,7 +53,7 @@
 <img src="screenshoots/slider.png"><br>
 <img src="screenshoots/room.png"><br>
 
----HELP----- TO INSTALL
+<h2>How To Install :</h2>
 
  <h2>step 1:</h2>
  	<span>-copy</span><br>
